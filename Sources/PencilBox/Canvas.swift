@@ -16,7 +16,7 @@ private struct CanvasDemo: View {
 
     var body: some View {
         ZStack {
-            PKCanvas(
+            PencilCanvas(
                 tool: tool,
                 isRuleActive: isRulerActive,
                 drawing: $drawing1

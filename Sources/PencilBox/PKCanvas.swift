@@ -1,7 +1,7 @@
 import SwiftUI
 import PencilKit
 
-public struct PKCanvas: UIViewRepresentable {
+public struct PencilCanvas: UIViewRepresentable {
     public var tool: PKInkingTool
     public var isRuleActive: Bool
     @Binding public var drawing: PKDrawing
@@ -36,9 +36,9 @@ public struct PKCanvas: UIViewRepresentable {
     }
 
     public class Coordinator: NSObject, PKCanvasViewDelegate {
-        var parent: PKCanvas
+        var parent: PencilCanvas
 
-        init(parent: PKCanvas) {
+        init(parent: PencilCanvas) {
             self.parent = parent
         }
 
@@ -91,13 +91,13 @@ public struct PKCanvas: UIViewRepresentable {
         view.contentSize = .init(width: view.frame.width, height: view.frame.height)
     }
 
-    public func onToolDown(_ callback: @escaping () -> Void) -> PKCanvas {
+    public func onToolDown(_ callback: @escaping () -> Void) -> PencilCanvas {
         var canvas = self
         canvas.didBeginUsingTool = callback
         return canvas
     }
 
-    public func onToolUp(_ callback: @escaping () -> Void) -> PKCanvas {
+    public func onToolUp(_ callback: @escaping () -> Void) -> PencilCanvas {
         var canvas = self
         canvas.didEndUsingTool = callback
         return canvas
@@ -105,7 +105,7 @@ public struct PKCanvas: UIViewRepresentable {
 }
 
 #Preview {
-    PKCanvas(
+    PencilCanvas(
         tool: PKInkingTool(.pen, color: .black, width: 10),
         isRuleActive: true,
         drawing: .constant(PKDrawing())
