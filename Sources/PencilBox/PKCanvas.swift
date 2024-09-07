@@ -73,6 +73,9 @@ public struct PKCanvas: UIViewRepresentable {
         view.drawing = drawing
         view.isOpaque = false
         view.backgroundColor = .clear
+        view.minimumZoomScale = .zero
+        view.maximumZoomScale = .infinity
+        view.contentSize = .init(width: view.frame.width, height: view.frame.height)
 
         return view
     }
@@ -83,6 +86,9 @@ public struct PKCanvas: UIViewRepresentable {
         view.drawing = drawing
         view.isRulerActive = isRuleActive
         view.drawingPolicy = .anyInput
+        view.minimumZoomScale = .zero
+        view.maximumZoomScale = .infinity
+        view.contentSize = .init(width: view.frame.width, height: view.frame.height)
     }
 
     public func onToolDown(_ callback: @escaping () -> Void) -> PKCanvas {

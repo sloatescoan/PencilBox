@@ -1,7 +1,7 @@
 import XCTest
-@testable import PencilKitUI
+@testable import PencilBox
 
-final class PencilKitUITests: XCTestCase {
+final class PencilBoxTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest
